@@ -472,6 +472,11 @@
         <option name="FOREGROUND" value="52e3f6" />
       </value>
     </option>
+    <option name="JS.PARAMETER">
+      <value>
+        <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
     <option name="LOG_ERROR_OUTPUT">
       <value>
         <option name="FOREGROUND" value="ff007f" />
@@ -544,6 +549,16 @@
     <option name="PY$FUNC_DEFINITION">
       <value>
         <option name="FOREGROUND" value="53e3f6" />
+        <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="REASSIGNED_LOCAL_VARIABLE_ATTRIBUTES">
+      <value>
+        <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="REASSIGNED_PARAMETER_ATTRIBUTES">
+      <value>
         <option name="EFFECT_TYPE" value="1" />
       </value>
     </option>
