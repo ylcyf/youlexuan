@@ -7,10 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecb66880-5aef-4850-ac9a-e4e49fa5419e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/youlexuan-common/src/main/java/com/offcn/MyUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youlexuan-manager-web/src/main/resources/spring/spring-security.xml" beforeDir="false" afterPath="$PROJECT_DIR$/youlexuan-manager-web/src/main/resources/spring/spring-security.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youlexuan-manager-web/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/youlexuan-manager-web/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/youlexuan-manager-web/target/" />
     <ignored path="$PROJECT_DIR$/youlexuan-pojo/target/" />
@@ -38,29 +36,29 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
-          <entry key="java" value="1" />
+          <entry key="java" value="2" />
           <entry key="properties" value="1" />
-          <entry key="xml" value="8" />
+          <entry key="xml" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JAVA" value="1" />
+          <entry key="JAVA" value="2" />
           <entry key="Properties" value="1" />
-          <entry key="XML" value="8" />
+          <entry key="XML" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="properties" value="11" />
-          <entry key="txt" value="24" />
+          <entry key="txt" value="58" />
           <entry key="xml" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="24" />
+          <entry key="PLAIN_TEXT" value="58" />
           <entry key="Properties" value="11" />
           <entry key="XML" value="15" />
         </counts>
@@ -94,19 +92,30 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/youlexuan-manager-web/src/main/webapp/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
+            <state relative-caret-position="45">
               <caret line="48" column="19" lean-forward="true" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/youlexuan-shop-web/src/main/webapp/WEB-INF/web.xml">
+        <entry file="file://$PROJECT_DIR$/youlexuan-manager-web/src/main/resources/spring/spring-security.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-861" />
+            <state relative-caret-position="-254">
+              <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/youlexuan-common/src/main/java/com/offcn/MyUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -171,6 +180,51 @@
             <path>
               <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="youlexuan-common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="youlexuan-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="youlexuan-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="youlexuan-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="youlexuan-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="youlexuan-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="offcn" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
@@ -246,16 +300,12 @@
               <item name="youlexuan-manager-web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="youlexuan-manager-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="offcn" type="462c0819:PsiDirectoryNode" />
+              <item name="sellergoods" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
@@ -283,58 +333,6 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="youlexuan-shop-web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="youlexuan-shop-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="youlexuan-shop-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="youlexuan-shop-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="youlexuan-shop-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="youlexuan-shop-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="youlexuan-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="youlexuan-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="youlexuan-shop-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -345,7 +343,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572317236317" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572317385304" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -533,7 +531,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572315587262</updated>
-      <workItem from="1572315590365" duration="1576000" />
+      <workItem from="1572315590365" duration="1863000" />
     </task>
     <task id="LOCAL-00001" summary="新建一个Util类">
       <created>1572315733612</created>
@@ -549,15 +547,21 @@
       <option name="project" value="LOCAL" />
       <updated>1572316347577</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="修改安全框架连接，运营商后台框架默认密码为123456，账号任意">
+      <created>1572317346567</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1572317346567</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1576000" />
+    <option name="totallyTimeSpent" value="1863000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info id="Image Layers" />
@@ -577,8 +581,8 @@
       <window_info anchor="bottom" id="Version Control" weight="0.3289689" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.690671" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39934534" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27332243" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -602,7 +606,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="新建一个Util类" />
     <MESSAGE value="修改数据库连接为刘小皮的数据库" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改数据库连接为刘小皮的数据库" />
+    <MESSAGE value="修改安全框架连接，运营商后台框架默认密码为123456，账号任意" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改安全框架连接，运营商后台框架默认密码为123456，账号任意" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/youlexuan-dao/src/main/resources/mybatis/SqlMapConfig.xml">
@@ -625,13 +630,6 @@
         <state relative-caret-position="-861" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/youlexuan-manager-web/src/main/resources/spring/spring-security.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/youlexuan-shop-web/src/main/resources/spring/spring-security.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-424">
@@ -648,8 +646,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/youlexuan-manager-web/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
+        <state relative-caret-position="45">
           <caret line="48" column="19" lean-forward="true" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youlexuan-manager-web/src/main/resources/spring/spring-security.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-254">
+          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youlexuan-common/src/main/java/com/offcn/MyUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
         </state>
       </provider>
     </entry>
