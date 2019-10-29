@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/youlexuan-GeneratorSource" />
     <file type="web" url="file://$PROJECT_DIR$/youlexuan-makecode" />
     <file type="web" url="file://$PROJECT_DIR$/youlexuan-manager-web" />
     <file type="web" url="file://$PROJECT_DIR$/youlexuan-sellergoods-service" />
