@@ -39,6 +39,10 @@
                     authentication-failure-url="/login.html"/>
         <csrf disabled="true"/>
 
+        <headers>
+            <frame-options policy="SAMEORIGIN"/>
+        </headers>
+
         <!-- 退出登录 -->
         <!--
            加此配置后，会自动的产生退出登录的地址/logout - 默认退出到登录页
