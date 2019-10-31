@@ -1,6 +1,0 @@
-<application>
-  <component name="PathMacrosImpl">
-    <macro name="MAVEN_REPOSITORY" value="D:\learn\Maven\leapFrogMaven\repository" />
-    <macro name="KOTLIN_BUNDLED" value="D:\learn\IDEA\plugins\Kotlin\kotlinc" />
-  </component>
-</application>
