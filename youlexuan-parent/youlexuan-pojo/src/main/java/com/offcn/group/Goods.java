@@ -4,6 +4,7 @@ import com.offcn.pojo.TbGoods;
 import com.offcn.pojo.TbGoodsDesc;
 import com.offcn.pojo.TbItem;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
  * @description：
  * @date ：2019/10/29 21:13
  */
-public class Goods {
+public class Goods implements Serializable {
     private TbGoods goods;
     private TbGoodsDesc goodsDesc;
     private List<TbItem> itemList;
@@ -48,5 +49,14 @@ public class Goods {
 
     public void setItemList(List<TbItem> itemList) {
         this.itemList = itemList;
+    }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "goods=" + goods +
+                ", goodsDesc=" + goodsDesc +
+                ", itemList=" + itemList +
+                '}';
     }
 }

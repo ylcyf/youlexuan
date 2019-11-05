@@ -23,6 +23,7 @@ app.service('goodsService',function($http){
 	}
 	//删除
 	this.dele=function(ids){
+		console.log(ids);
 		return $http.get('../goods/delete.do?ids='+ids);
 	}
 	//搜索

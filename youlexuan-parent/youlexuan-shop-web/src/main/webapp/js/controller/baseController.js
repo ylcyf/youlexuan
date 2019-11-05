@@ -40,4 +40,18 @@ app.controller('baseController' ,function($scope){
         }
         return value;
     };
+
+    // 从集合中按照key查询对象
+    // list : [{"attributeName":"网络","attributeValue":["联通3G","联通4G","电信3G"]}]
+    // key : attributeName
+    // keyValue : 网络
+    $scope.searchObjectByKey= function (list, key, keyValue) {
+
+        for (var i = 0; i < list.length; i++) {
+            if (list[i][key] == keyValue) {
+                return list[i];
+            }
+        }
+        return null;
+    }
 });

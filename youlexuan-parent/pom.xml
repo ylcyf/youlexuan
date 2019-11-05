@@ -47,12 +47,6 @@
                 <artifactId>fastdfs_client</artifactId>
                 <version>1.20</version>
             </dependency>
-            <!-- 需要自定义安装 -->
-            <dependency>
-                <groupId>org.csource.fastdfs</groupId>
-                <artifactId>fastdfs</artifactId>
-                <version>1.27</version>
-            </dependency>
             <!-- 文件上传类 -->
             <dependency>
                 <groupId>commons-fileupload</groupId>

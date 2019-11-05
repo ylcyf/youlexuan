@@ -3,6 +3,7 @@ package com.offcn.sellergoods.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.offcn.entity.PageResult;
 import com.offcn.entity.Result;
+import com.offcn.group.Goods;
 import com.offcn.pojo.TbGoods;
 import com.offcn.sellergoods.service.GoodsService;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -80,8 +81,8 @@ public class GoodsController {
 	 * @return
 	 */
 	@RequestMapping("/findOne")
-	public TbGoods findOne(Long id){
-		return goodsService.findOne(id);		
+	public Goods findOne(Long id){
+		return goodsService.findOne(id);
 	}
 	
 	/**
@@ -109,7 +110,22 @@ public class GoodsController {
 	 */
 	@RequestMapping("/search")
 	public PageResult search(@RequestBody TbGoods goods, int page, int rows  ){
-		return goodsService.findPage(goods, page, rows);		
+		return goodsService.findPage(goods, page, rows);
 	}
-	
+
+	/**
+	 * 修改goods表的状态，1为审核通过，2为驳回
+	 * @param status
+	 * @return
+	 */
+	@RequestMapping("/updateStatus")
+	public Result updateStatus(@RequestBody List<Long> ids, String status){
+		try {
+			goodsService.updateStatus(ids,status);
+			return new Result(true, "修改成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false, "修改失败");
+		}
+	}
 }

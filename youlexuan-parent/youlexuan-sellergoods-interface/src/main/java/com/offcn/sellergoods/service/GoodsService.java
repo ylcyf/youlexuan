@@ -32,11 +32,21 @@ public interface GoodsService {
 	*/
 	void add(TbGoods goods);
 
+	/**
+	 * 重载增加方法
+	 */
+	void add(Goods goods);
+
 
 	/**
 	 * 修改
 	 */
 	void update(TbGoods goods);
+
+	/**
+	 * 重载修改方法
+	 */
+	void update(Goods goods);
 
 
 	/**
@@ -44,7 +54,7 @@ public interface GoodsService {
 	 * @param id
 	 * @return
 	 */
-	TbGoods findOne(Long id);
+	Goods findOne(Long id);
 
 
 	/**
@@ -60,5 +70,19 @@ public interface GoodsService {
 	 * @return
 	 */
 	PageResult findPage(TbGoods goods, int pageNum, int pageSize);
-	
+
+	/**
+	 * 重载分页方法
+	 * @param pageNum 当前页 码
+	 * @param pageSize 每页记录数
+	 * @return
+	 */
+	PageResult findPage(TbGoods goods, int pageNum, int pageSize, String name);
+
+	/**
+	 * 修改goods表的状态，1为审核通过，2为驳回
+	 * @param status
+	 * @return
+	 */
+	void updateStatus(List<Long> ids, String status);
 }
