@@ -17,6 +17,8 @@
         <module>youlexuan-shop-web</module>
         <module>youlexuan-dao</module>
         <module>youlexuan-makecode</module>
+        <module>youlexuan-content-interface</module>
+        <module>youlexuan-content-service</module>
     </modules>
 
     <properties>

@@ -15,9 +15,9 @@ public class MakeCodeMain {
 	
 	public static void main(String[] args) throws SQLException {
 		//定义生成模块名称:商品管理模块
-		String modelName="";
-		String serviceName = "";
-		String tableSetName = "manager_xxx_tableSet";
+		String modelName="sellergoods";
+		String serviceName = "sellergoods";
+		String tableSetName = "manager_content_tableSet";
 		generateCode(modelName, serviceName, tableSetName);
 
 	}
