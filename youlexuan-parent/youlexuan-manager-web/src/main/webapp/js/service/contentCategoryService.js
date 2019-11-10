@@ -11,7 +11,7 @@ app.service('contentCategoryService',function($http){
 	}
 	//查询实体
 	this.findOne=function(id){
-		return $http.get('../contentCategory/findOne.do?[PrimaryKeyName]='+id);
+		return $http.get('../contentCategory/findOne.do?id='+id);
 	}
 	//增加 
 	this.add=function(entity){
@@ -23,7 +23,7 @@ app.service('contentCategoryService',function($http){
 	}
 	//删除
 	this.dele=function(ids){
-		return $http.get('../contentCategory/delete.do?[PrimaryKeyName]s='+ids);
+		return $http.get('../contentCategory/delete.do?ids='+ids);
 	}
 	//搜索
 	this.search=function(page,rows,searchEntity){

@@ -10,7 +10,9 @@ import com.offcn.mapper.*;
 import com.offcn.pojo.*;
 import com.offcn.pojo.TbGoodsExample.Criteria;
 import com.offcn.sellergoods.service.GoodsService;
+import org.apache.solr.client.solrj.response.UpdateResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.solr.core.SolrTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,6 +24,7 @@ import java.util.*;
  *
  */
 @Service
+@Transactional
 public class GoodsServiceImpl implements GoodsService {
 
 	@Autowired
@@ -36,6 +39,9 @@ public class GoodsServiceImpl implements GoodsService {
 	private TbItemCatMapper itemCatMapper;
 	@Autowired
 	private TbSellerMapper sellerMapper;
+
+	@Autowired
+    private SolrTemplate solrTemplate;
 	
 	/**
 	 * 查询全部
@@ -67,7 +73,6 @@ public class GoodsServiceImpl implements GoodsService {
 	 * 重载增加方法
 	 */
 	@Override
-	@Transactional
 	public void add(Goods goods) {
 		goods.getGoods().setAuditStatus("0");
 		goodsMapper.insert(goods.getGoods());
@@ -90,9 +95,9 @@ public class GoodsServiceImpl implements GoodsService {
 	 * 重载修改方法
 	 */
 	@Override
-	@Transactional
 	public void update(Goods goods) {
 		goods.getGoods().setAuditStatus("0");
+		goods.getGoods().setIsDelete("0");
 		goodsMapper.updateByPrimaryKey(goods.getGoods());
 		goodsDescMapper.updateByPrimaryKey(goods.getGoodsDesc());
 
@@ -100,7 +105,17 @@ public class GoodsServiceImpl implements GoodsService {
 		TbItemExample example = new TbItemExample();
 		TbItemExample.Criteria criteria = example.createCriteria();
 		criteria.andGoodsIdEqualTo(goods.getGoods().getId());
-		itemMapper.deleteByExample(example);
+        List<TbItem> items = itemMapper.selectByExample(example);
+        List<String> itemId = new ArrayList<>();
+        for (TbItem item : items) {
+            itemId.add(item.getId() + "");
+        }
+        //删除solr中的索引
+        solrTemplate.deleteById(itemId);
+        solrTemplate.commit();
+
+        itemMapper.deleteByExample(example);
+
 
 		//新增
 		saveItemList(goods);
@@ -126,7 +141,6 @@ public class GoodsServiceImpl implements GoodsService {
 	 * 批量删除
 	 */
 	@Override
-	@Transactional
 	public void delete(Long[] ids) {
 		//将数组转换为List集合
 		List<Long> list = new ArrayList<>();
@@ -147,11 +161,17 @@ public class GoodsServiceImpl implements GoodsService {
 		TbItemExample example1 = new TbItemExample();
 		TbItemExample.Criteria criteria1 = example1.createCriteria();
 		criteria1.andGoodsIdIn(list);
+		criteria1.andStatusEqualTo("1");
 		List<TbItem> items = itemMapper.selectByExample(example1);
+		List<String> itemId = new ArrayList<>();
 		for (TbItem item : items) {
 			item.setStatus("0");
 			itemMapper.updateByPrimaryKey(item);
-		}
+            itemId.add(item.getId() + "");
+        }
+        //删除solr中的索引
+        solrTemplate.deleteById(itemId);
+        solrTemplate.commit();
 
 		/*//批量删除TBGoods数据
 		TbGoodsExample goodsExample = new TbGoodsExample();
@@ -244,8 +264,12 @@ public class GoodsServiceImpl implements GoodsService {
 		return new PageResult(page.getTotal(), page.getResult());
 	}
 
+	/**
+	 * 修改状态 1为审核通过，2为驳回
+	 */
 	@Override
 	public void updateStatus(List<Long> ids, String status) {
+		//修改goods表的AuditStatus属性
 		TbGoodsExample example = new TbGoodsExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andIdIn(ids);
@@ -253,6 +277,16 @@ public class GoodsServiceImpl implements GoodsService {
 		for (TbGoods good : goods) {
 			good.setAuditStatus(status);
 			goodsMapper.updateByPrimaryKey(good);
+		}
+		//审核通过则更新solr中的索引
+		TbItemExample itemExample = new TbItemExample();
+		TbItemExample.Criteria criteria1 = itemExample.createCriteria();
+		criteria1.andGoodsIdIn(ids);
+		criteria1.andStatusEqualTo("1");
+		List<TbItem> items = itemMapper.selectByExample(itemExample);
+		if(status.equals("1")) {
+            solrTemplate.saveBeans(items);
+            solrTemplate.commit();
 		}
 	}
 

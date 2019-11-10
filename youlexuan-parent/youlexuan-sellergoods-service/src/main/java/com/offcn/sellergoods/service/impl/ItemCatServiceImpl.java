@@ -10,8 +10,11 @@ import com.offcn.pojo.TbItemCatExample;
 import com.offcn.pojo.TbItemCatExample.Criteria;
 import com.offcn.sellergoods.service.ItemCatService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * 商品类目服务实现层
@@ -19,10 +22,14 @@ import java.util.List;
  *
  */
 @Service
+@Transactional
 public class ItemCatServiceImpl implements ItemCatService {
 
 	@Autowired
 	private TbItemCatMapper item_catMapper;
+
+	@Autowired
+	private RedisTemplate redisTemplate;
 	
 	/**
 	 * 查询全部
@@ -47,7 +54,9 @@ public class ItemCatServiceImpl implements ItemCatService {
 	 */
 	@Override
 	public void add(TbItemCat item_cat) {
-		item_catMapper.insert(item_cat);		
+		item_catMapper.insert(item_cat);
+		//添加分类信息时将redis中的品牌信息全部删除
+		redisTemplate.boundHashOps("itemCat").delete();
 	}
 
 	
@@ -57,6 +66,8 @@ public class ItemCatServiceImpl implements ItemCatService {
 	@Override
 	public void update(TbItemCat item_cat){
 		item_catMapper.updateByPrimaryKey(item_cat);
+		//修改分类信息时将redis中的品牌信息全部删除
+		redisTemplate.boundHashOps("itemCat").delete();
 	}	
 	
 	/**
@@ -76,6 +87,8 @@ public class ItemCatServiceImpl implements ItemCatService {
 	public void delete(Long[] ids) {
 		for(Long id:ids){
 			item_catMapper.deleteByPrimaryKey(id);
+			//删除分类信息时将redis中的品牌信息全部删除
+			redisTemplate.boundHashOps("itemCat").delete();
 		}		
 	}
 	
@@ -99,6 +112,15 @@ public class ItemCatServiceImpl implements ItemCatService {
 
 	@Override
 	public List<TbItemCat> findByParentId(Long parentId) {
+		//查询数据库是否有分类信息的数据，如有则不执行更新redis。
+		Set keys = redisTemplate.boundHashOps("itemCat").keys();
+		if(keys.size() < 0) {
+			//在用户第一次查询分类信息时将数据放入redis中，存储为“分类名：模板ID”
+			List<TbItemCat> itemCats = findAll();
+			for (TbItemCat itemCat : itemCats) {
+				redisTemplate.boundHashOps("itemCat").put(itemCat.getName(), itemCat.getTypeId());
+			}
+		}
 		TbItemCatExample example = new TbItemCatExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andParentIdEqualTo(parentId);

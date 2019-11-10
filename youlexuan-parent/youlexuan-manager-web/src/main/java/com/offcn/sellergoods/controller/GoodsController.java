@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.offcn.entity.PageResult;
 import com.offcn.entity.Result;
 import com.offcn.group.Goods;
+import com.offcn.page.service.ItemPageService;
 import com.offcn.pojo.TbGoods;
 import com.offcn.sellergoods.service.GoodsService;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,9 @@ public class GoodsController {
 
 	@Reference
 	private GoodsService goodsService;
+
+	@Reference(timeout = 4000)
+	private ItemPageService itemPageService;
 	
 	/**
 	 * 返回全部列表
@@ -127,5 +131,14 @@ public class GoodsController {
 			e.printStackTrace();
 			return new Result(false, "修改失败");
 		}
+	}
+
+	/**
+	 * 根据goodsId生成对应的静态页面（测试）
+	 */
+	@RequestMapping("/genHtml")
+	public void genHtml(Long goodsId){
+		System.out.println(goodsId);
+		itemPageService.genItemHtml(goodsId);
 	}
 }

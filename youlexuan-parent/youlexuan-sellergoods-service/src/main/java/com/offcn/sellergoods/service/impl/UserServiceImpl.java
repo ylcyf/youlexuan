@@ -6,6 +6,7 @@ import com.offcn.pojo.TbUser;
 import com.offcn.pojo.TbUserExample;
 import com.offcn.sellergoods.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author ：以吾之名义裁决
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @date ：2019/10/26 15:24
  */
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
     @Autowired
     private TbUserMapper tbUserMapper;

@@ -11,7 +11,7 @@ app.service('[table2]Service',function($http){
 	}
 	//查询实体
 	this.findOne=function(id){
-		return $http.get('../[table2]/findOne.do?[PrimaryKeyName]='+id);
+		return $http.get('../[table2]/findOne.do?'+[PrimaryKeyName]+'='+id);
 	}
 	//增加 
 	this.add=function(entity){
@@ -23,7 +23,7 @@ app.service('[table2]Service',function($http){
 	}
 	//删除
 	this.dele=function(ids){
-		return $http.get('../[table2]/delete.do?[PrimaryKeyName]s='+ids);
+		return $http.get('../[table2]/delete.do?'+[PrimaryKeyName]+'s='+ids);
 	}
 	//搜索
 	this.search=function(page,rows,searchEntity){

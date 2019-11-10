@@ -11,6 +11,7 @@ import com.offcn.pojo.TbSellerExample;
 import com.offcn.pojo.TbSellerExample.Criteria;
 import com.offcn.sellergoods.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -21,6 +22,7 @@ import java.util.List;
  *
  */
 @Service
+@Transactional
 public class SellerServiceImpl implements SellerService {
 
 	@Autowired

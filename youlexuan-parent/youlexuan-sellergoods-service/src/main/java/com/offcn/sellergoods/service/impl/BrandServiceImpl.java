@@ -10,6 +10,7 @@ import com.offcn.pojo.TbBrand;
 import com.offcn.pojo.TbBrandExample;
 import com.offcn.sellergoods.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,7 @@ import java.util.Map;
  * @date ：2019/10/22 16:54
  */
 @Service
+@Transactional
 public class BrandServiceImpl implements BrandService {
     @Autowired
     private TbBrandMapper brandMapper;

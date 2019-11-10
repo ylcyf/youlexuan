@@ -7,13 +7,12 @@ import com.github.pagehelper.PageHelper;
 import com.offcn.entity.PageResult;
 import com.offcn.mapper.TbSpecificationOptionMapper;
 import com.offcn.mapper.TbTypeTemplateMapper;
-import com.offcn.pojo.TbSpecificationOption;
-import com.offcn.pojo.TbSpecificationOptionExample;
-import com.offcn.pojo.TbTypeTemplate;
-import com.offcn.pojo.TbTypeTemplateExample;
+import com.offcn.pojo.*;
 import com.offcn.pojo.TbTypeTemplateExample.Criteria;
 import com.offcn.sellergoods.service.TypeTemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
@@ -23,12 +22,15 @@ import java.util.*;
  *
  */
 @Service
+@Transactional
 public class TypeTemplateServiceImpl implements TypeTemplateService {
 
 	@Autowired
 	private TbTypeTemplateMapper type_templateMapper;
 	@Autowired
     private TbSpecificationOptionMapper specificationOptionMapper;
+	@Autowired
+	private RedisTemplate redisTemplate;
 	
 	/**
 	 * 查询全部
@@ -53,7 +55,10 @@ public class TypeTemplateServiceImpl implements TypeTemplateService {
 	 */
 	@Override
 	public void add(TbTypeTemplate type_template) {
-		type_templateMapper.insert(type_template);		
+		type_templateMapper.insert(type_template);
+		//删除redis中的品牌以及规格信息
+		redisTemplate.delete("brandList");
+		redisTemplate.delete("specList");
 	}
 
 	
@@ -63,6 +68,9 @@ public class TypeTemplateServiceImpl implements TypeTemplateService {
 	@Override
 	public void update(TbTypeTemplate type_template){
 		type_templateMapper.updateByPrimaryKey(type_template);
+		//删除redis中的品牌以及规格信息
+		redisTemplate.delete("brandList");
+		redisTemplate.delete("specList");
 	}	
 	
 	/**
@@ -82,7 +90,10 @@ public class TypeTemplateServiceImpl implements TypeTemplateService {
 	public void delete(Long[] ids) {
 		for(Long id:ids){
 			type_templateMapper.deleteByPrimaryKey(id);
-		}		
+		}
+		//删除redis中的品牌以及规格信息
+		redisTemplate.delete("brandList");
+		redisTemplate.delete("specList");
 	}
 	
 	
@@ -105,7 +116,8 @@ public class TypeTemplateServiceImpl implements TypeTemplateService {
 			}	
 		}
 		
-		Page<TbTypeTemplate> page= (Page<TbTypeTemplate>)type_templateMapper.selectByExample(example);		
+		Page<TbTypeTemplate> page= (Page<TbTypeTemplate>)type_templateMapper.selectByExample(example);
+		saveRedis();
 		return new PageResult(page.getTotal(), page.getResult());
 	}
 
@@ -128,4 +140,16 @@ public class TypeTemplateServiceImpl implements TypeTemplateService {
 		return list;
 	}
 
+	//将模板中的spec和brand数据存入reids。
+	private void saveRedis(){
+		//获取所有的模板
+		List<TbTypeTemplate> typeTemplates = findAll();
+		//获取模板中的品牌信息和规格信息，并且将品牌信息与规格信息以模板id为key值，存入redis缓存中。
+		for (TbTypeTemplate typeTemplate : typeTemplates) {
+			List<Map> brandList = JSON.parseArray(typeTemplate.getBrandIds(), Map.class);
+			redisTemplate.boundHashOps("brandList").put(typeTemplate.getId(), brandList);
+			List<Map> specList = findSpecList(typeTemplate.getId());
+			redisTemplate.boundHashOps("specList").put(typeTemplate.getId(), specList);
+		}
+	}
 }
